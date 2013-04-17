@@ -10,7 +10,7 @@ import ConfigParser
 smtpconfig = ConfigParser.ConfigParser()
 smtpconfig.read('conf/tweets-client.ini')
 smtp = smtplib.SMTP(smtpconfig.get('moderation-alerts', 'mail_host'), smtpconfig.get('moderation-alerts', 'mail_port'))
-smtp.login(smtpconfig.get('moderation-alerts', 'mail_username'), smtpconfig.get('moderation-alerts', 'mail_password'))
+#smtp.login(smtpconfig.get('moderation-alerts', 'mail_username'), smtpconfig.get('moderation-alerts', 'mail_password'))
 
 recipient = smtpconfig.get('moderation-alerts', 'unmoderated_recipient')
 sender = smtpconfig.get('moderation-alerts', 'sender')
