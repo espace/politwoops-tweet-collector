@@ -255,7 +255,7 @@ class DeletedTweetsWorker(object):
             nowtime = nowtime.astimezone(pytz.timezone('US/Eastern'))
 
             smtp = smtplib.SMTP(host, port)
-            smtp.login(user, password)
+            # Not supported smtp.login(user, password)
             msg = MIMEText(text.encode('UTF-8'), 'plain', 'UTF-8')
             msg['Subject'] = 'Politwoop! @%s -- deleted on %s after %s' % (username, nowtime.strftime('%m-%d-%Y %I:%M %p'), diffstr)
             msg['From'] = sender
