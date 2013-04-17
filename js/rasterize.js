@@ -10,8 +10,8 @@ var RenderDelayTimeout = 2 * 1000;
 var RenderRetryDelayTimeout = 2 * 1000;
 
 // Output image size
-var WindowWidth = 1280;
-var WindowHeight = 1024;
+var WindowWidth = 1024;
+var WindowHeight = 768;
 
 
 
