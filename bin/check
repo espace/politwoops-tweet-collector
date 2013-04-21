@@ -1,3 +1,10 @@
 #!/bin/sh
-TWEETS_CLIENT_HOME=/home/breyten/politwoops-twitter-client
-if [ -z "$(pgrep -f tweets-client)" ]; then $TWEETS_CLIENT_HOME/bin/start; fi
+TWEETS_CLIENT_HOME="$(dirname "$PWD")"
+if [ -z "$(pgrep -f tweets-client)" ]; then
+        $TWEETS_CLIENT_HOME/bin/start;
+        echo 'tweets client has been started with process'
+        pgrep -f tweets-client
+else
+        echo "There is a already running with id : "
+        pgrep -f tweets-client
+fi

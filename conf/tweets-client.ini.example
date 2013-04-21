@@ -67,3 +67,6 @@ mail_password=
 mail_port=25
 recipient=
 sender=
+
+#logs directory
+logs_dir=/var/log/politwoops
