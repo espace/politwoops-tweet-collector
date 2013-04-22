@@ -1,7 +1,6 @@
 #!/bin/bash
-
-conf_file="../conf/tweets-client.ini"
-
+cd "$PWD"
+conf_file="conf/tweets-client.ini"
 shopt -s extglob
 
 while read line; do
@@ -14,7 +13,7 @@ done < "$conf_file"
 
 if [[ ! -z "$logs_dir" ]]
 then
-	cd "$(dirname "$PWD")"
+	#cd "$(dirname "$PWD")"
 	PYTHONPATH=$PYTHONPATH:`pwd`/lib ./bin/tweets-client.py --restart --output $logs_dir/tweets-client.py.log >>$logs_dir/tweets-client.py.err 2>&1 & 
 	echo $! >./tweets-client.pid
 fi

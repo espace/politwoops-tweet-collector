@@ -1,3 +1,10 @@
-#!/bin/sh
-TWEETS_CLIENT_HOME="$(dirname "$PWD")"
-if [ -z "$(pgrep -f politwoops-worker)" ]; then $TWEETS_CLIENT_HOME/bin/start-worker; fi
+#!/bin/bash
+TWEETS_CLIENT_HOME="$PWD"
+if [ -z "$(pgrep -f politwoops-worker)" ]; then 
+	$TWEETS_CLIENT_HOME/bin/start-worker
+	echo 'tweets worker has been started with process'
+    pgrep -f politwoops-worker
+else
+    echo "There is a already running with id : "
+    pgrep -f politwoops-worker
+fi

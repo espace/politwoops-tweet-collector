@@ -1,8 +1,8 @@
-#!/bin/sh
-TWEETS_CLIENT_HOME="$(dirname "$PWD")"
+#!/bin/bash
+TWEETS_CLIENT_HOME="$PWD"
 if [ -z "$(pgrep -f tweets-client)" ]; then
         $TWEETS_CLIENT_HOME/bin/start;
-        echo 'tweets client has been started with process'
+        echo 'tweets worker has been started with process'
         pgrep -f tweets-client
 else
         echo "There is a already running with id : "
