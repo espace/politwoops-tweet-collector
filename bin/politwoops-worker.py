@@ -209,7 +209,7 @@ class DeletedTweetsWorker(object):
     
     def copy_tweet_to_deleted_table(self, tweet_id):
         cursor = self.database.cursor()
-        cursor.execute("""INSERT IGNORE INTO `deleted_tweets` SELECT * FROM `tweets` WHERE `id` = %s AND `content` IS NOT NULL""" % (tweet_id))
+        cursor.execute("""INSERT IGNORE INTO `deleted_tweets` (`id`, `user_name`, `content`, `deleted`, `created`, `modified`, `tweet`, `politician_id`, `approved`, `reviewed`, `reviewed_at`) SELECT `id`, `user_name`, `content`, `deleted`, `created`, `modified`, `tweet`, `politician_id`, `approved`, `reviewed`, `reviewed_at` FROM `tweets` WHERE `id` = %s AND `content` IS NOT NULL""" % (tweet_id))
         self.stathat_add_count('deleted tweets')
         
     def handle_possible_rename(self, tweet):
